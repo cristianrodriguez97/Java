@@ -10,8 +10,9 @@ The following is the code implemented for the correct operation of the system.
 
 ### Initial thread class
 Class in which the first process will be initialized, which will only have to indicate its identifier and enable the semaphore once it is finished.
-```
- import java.util.concurrent.Semaphore;
+
+```java
+import java.util.concurrent.Semaphore;
 
 public class HiloAnterior extends Thread{
     private Semaphore semaforo1;
@@ -40,8 +41,8 @@ public void run(){
 
 ### Mid thread class
 Class in which the second process will be initialized, which will have to wait for the first process to finish, indicate its identifier and enable the second semaphore.
-```
- import java.util.concurrent.Semaphore;
+```java
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -82,8 +83,8 @@ public void run(){
 
 ### End thread class
 Class of the third and last phase of the process, where it is necessary to wait until the previous phases have been completed to be executed.
-```
- import java.util.concurrent.Semaphore;
+```java
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -122,8 +123,8 @@ public void run(){
 
 ### Main class
 To verify correct operation, five threads will be created. When the first thread or process finishes, the second and third process will start. When threads 2 and 3 are finished, threads 4 and 5 can be executed respectively. It has been configured so that the activity performed by each thread is to greet and identify itself. Due to this scheme, the possible results will be that the threads are executed in the order 1, 2, 3, 4, 5 or 1, 3, 2, 5, 4.  
-```
- import java.util.concurrent.Semaphore;
+```java
+import java.util.concurrent.Semaphore;
 
 public class Main {
 	
